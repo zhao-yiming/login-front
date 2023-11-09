@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from "react";
 import "./App.css";
+import { Password } from 'primereact/password';
 
 function App() {
   const [message, setMessage] = useState("");
@@ -8,7 +9,7 @@ function App() {
 
 
   function login(){
-    fetch("http://localhost:5000/login", {
+    fetch("http://localhost:5000/simple-login", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -43,7 +44,7 @@ function App() {
 				</div> 
 				<div> 
 					<label htmlFor="passw">Password</label>
-					<input type="text" name="passw" id="passw" onChange={(e) => setInputPass(e.target.value)}/> 
+					<Password type="text" name="passw" id="passw" feedback={false} onChange={(e) => setInputPass(e.target.value)}/> 
 				</div>  
 				<button type="submit" onClick={login}>Login</button>
         <div>{message}</div>
@@ -53,3 +54,23 @@ function App() {
 }
 
 export default App;
+
+//import React from "react";
+//import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+//import "./App.css";
+//
+//
+//import Login from "./login"; 
+//
+//function App() {
+//
+//  return (
+//    <Router>
+//      <Routes>
+//        <Route path="/simple-login" element={<Login />} />
+//      </Routes>
+//    </Router>
+//  );
+//}
+//
+//export default App;
