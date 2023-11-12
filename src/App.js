@@ -9,7 +9,7 @@ function App() {
 
 
   function login(){
-    fetch("http://localhost:5000/simple-login", {
+    fetch("http://192.168.0.202:5000/simple-login", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
